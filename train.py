@@ -6,7 +6,7 @@ import numpy as np
 import random
 
 from resnet18 import ResNet, BasicBlock
-# from resnet18_torchvision import build_model
+from resnet18_torchvision import build_model
 from training_utils import train, validate
 from utils import save_plots, get_data
 
@@ -38,11 +38,11 @@ if args['model'] == 'scratch':
     print('[INFO]: Training ResNet18 built from scratch...')
     model = ResNet(img_channels=3, num_layers=18, block=BasicBlock, num_classes=10).to(device)
     plot_name = 'resnet_scratch'
-# if args['model'] == 'torchvision':
-#     print('[INFO]: Training the Torchvision ResNet18 model...')
-#     model = build_model(pretrained=False, fine_tune=True, num_classes=10).to(device) 
-#     plot_name = 'resnet_torchvision'
-# print(model)
+if args['model'] == 'torchvision':
+    print('[INFO]: Training the Torchvision ResNet18 model...')
+    model = build_model(pretrained=False, fine_tune=True, num_classes=10).to(device) 
+    plot_name = 'resnet_torchvision'
+print(model)
 # Total parameters and trainable parameters.
 total_params = sum(p.numel() for p in model.parameters())
 print(f"{total_params:,} total parameters.")

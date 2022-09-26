@@ -44,6 +44,7 @@ Implement [resnet18](https://arxiv.org/abs/1512.03385) following [this article](
 # Notes on training
 - Train on the CIFAR10 dataset which contains 60k RGB images each of size 32×32 in dimension.
 - Dataset is downloaded in utils.get_data
+- You can train on cpu but it is slow
 
 ## Development
 Uisng Github Codepsace. This provides `Python 3.10.7` and includes the following:
