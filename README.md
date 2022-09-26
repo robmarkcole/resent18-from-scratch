@@ -44,7 +44,26 @@ Implement [resnet18](https://arxiv.org/abs/1512.03385) following [this article](
 # Notes on training
 - Train on the CIFAR10 dataset which contains 60k RGB images each of size 32×32 in dimension.
 - Dataset is downloaded in utils.get_data
-- You can train on cpu but it is slow
+- You can train on cpu but it is slow - about 2 mins per epoch
+- run `python train.py` with args `--model scratch` (this is the version in `resnet18.py`) or `--model torchvision` (loads using torchvision)
+
+```
+[INFO]: Epoch 20 of 20
+Training
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 782/782 [01:56<00:00,  6.73it/s]
+Validation
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 157/157 [00:06<00:00, 22.91it/s]
+Training loss: 0.050, training acc: 98.256
+Validation loss: 1.367, validation acc: 73.060
+```
+
+<p align="center">
+<img src="outputs/resnet_scratch_loss.png" width="450">
+</p>
+
+<p align="center">
+<img src="outputs/resnet_scratch_accuracy.png" width="450">
+</p>
 
 ## Development
 Uisng Github Codepsace. This provides `Python 3.10.7` and includes the following:
