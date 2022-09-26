@@ -1,5 +1,15 @@
 # resent18-from-scratch
-Implement resnet18 following [this article](https://debuggercafe.com/implementing-resnet18-in-pytorch-from-scratch/), then train on remote sensing dataset
+Implement [resnet18](https://arxiv.org/abs/1512.03385) following [this article](https://debuggercafe.com/implementing-resnet18-in-pytorch-from-scratch/), then train on remote sensing dataset
+
+## Notes
+- 5 ResNet models in paper: ResNet18, ResNet34, ResNet50, ResNet101, and ResNet152
+- The numbers in the names of the models represent the total number of convolutional layers
+- four different types of Basic Blocks - the only change that occurs across the Basic Blocks (conv2_x to conv5_x) is in the number of input and output channels
+- The numbers beside each block represent how many times we need to repeat the Basic Blocks while building the network
+
+<p align="center">
+<img src="images/resnet18-basic-blocks-1.png" width="650">
+</p>
 
 ## Development
 Uisng Github Codepsace. This provides `Python 3.10.7` and includes the following:
