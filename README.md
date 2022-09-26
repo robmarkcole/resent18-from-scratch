@@ -17,7 +17,8 @@ Implement [resnet18](https://arxiv.org/abs/1512.03385) following [this article](
     * conv4_x => layer3
     * conv5_x => layer4
 
-- The first layer1 (`conv2_x`) is shown below:
+- Then each of the layers (or we can say, layer block) will contain two Basic Blocks stacked together. The first layer1 (`conv2_x`) is shown below:
+
 ```python
 (layer1): Sequential(
     (0): BasicBlock(
