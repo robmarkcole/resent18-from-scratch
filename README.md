@@ -1,15 +1,41 @@
 # resent18-from-scratch
 Implement [resnet18](https://arxiv.org/abs/1512.03385) following [this article](https://debuggercafe.com/implementing-resnet18-in-pytorch-from-scratch/), then train on remote sensing dataset
 
-## Notes
+## Notes from article
 - 5 ResNet models in paper: ResNet18, ResNet34, ResNet50, ResNet101, and ResNet152
 - The numbers in the names of the models represent the total number of convolutional layers
 - four different types of Basic Blocks - the only change that occurs across the Basic Blocks (conv2_x to conv5_x) is in the number of input and output channels
-- The numbers beside each block represent how many times we need to repeat the Basic Blocks while building the network
+- The numbers beside each block represent how many times we need to repeat the Basic Blocks while building the network. It is the same (2) for all Basic Blocks of ResNet18.
 
 <p align="center">
 <img src="images/resnet18-basic-blocks-1.png" width="650">
 </p>
+
+- Let’s call conv2_x to conv5_x as layer1 to layer4:
+    * conv2_x => layer1
+    * conv3_x => layer2
+    * conv4_x => layer3
+    * conv5_x => layer4
+
+- The first layer1 (`conv2_x`) is shown below:
+```python
+(layer1): Sequential(
+    (0): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+    (1): BasicBlock(
+      (conv1): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn1): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+      (relu): ReLU(inplace=True)
+      (conv2): Conv2d(64, 64, kernel_size=(3, 3), stride=(1, 1), padding=(1, 1), bias=False)
+      (bn2): BatchNorm2d(64, eps=1e-05, momentum=0.1, affine=True, track_running_stats=True)
+    )
+  )
+  ```
 
 ## Development
 Uisng Github Codepsace. This provides `Python 3.10.7` and includes the following:
